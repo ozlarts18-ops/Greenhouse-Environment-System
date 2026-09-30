@@ -1,0 +1,31 @@
+{
+  "name": "smart-greenhouse-iotrex",
+  "version": "2.0.0",
+  "description": "Smart Greenhouse Automation System - IOTrex Unified Control Center (MERN + Dual AI + Raspberry Pi BCM Gateway)",
+  "scripts": {
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"blue,green\" \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:all": "concurrently -n \"AI,SERVER,CLIENT\" -c \"magenta,blue,green\" \"npm run start:ai\" \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "build:client": "npm --prefix client run build",
+    "start": "npm --prefix server start",
+    "start:ai": "powershell -Command \"& 'c:\\Users\\OSWALDO\\Documents\\IOT19-main\\Backend\\ai\\venv\\Scripts\\python.exe' 'c:\\Users\\OSWALDO\\Documents\\IOT19-main\\Backend\\ai\\inference_server.py'\"",
+    "install-all": "npm install && npm --prefix server install && npm --prefix client install"
+  },
+  "keywords": [
+    "greenhouse",
+    "iotrex",
+    "automation",
+    "raspberry-pi",
+    "yolo11",
+    "resnet18",
+    "mern",
+    "react",
+    "express"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

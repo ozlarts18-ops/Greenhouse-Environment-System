@@ -1,0 +1,18 @@
+[Unit]
+Description=Smart Greenhouse Automation — Raspberry Pi Controller & Cloud Gateway
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/greenhouse
+Environment=PYTHONUNBUFFERED=1
+Environment=GREENHOUSE_GATEWAY_URL=http://YOUR_SERVER_IP:5000/api/sensors/gateway
+Environment=GREENHOUSE_SYNC_INTERVAL=2.0
+ExecStart=/usr/bin/python3 /home/pi/greenhouse/rpi_greenhouse_gateway.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
